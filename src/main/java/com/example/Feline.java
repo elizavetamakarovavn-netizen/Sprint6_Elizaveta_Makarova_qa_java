@@ -1,5 +1,4 @@
 package com.example;
-
 import java.util.List;
 
 public class Feline extends Animal implements Predator {
@@ -14,6 +13,7 @@ public class Feline extends Animal implements Predator {
         return "Кошачьи";
     }
 
+    @Override
     public int getKittens() {
         return getKittens(1);
     }
