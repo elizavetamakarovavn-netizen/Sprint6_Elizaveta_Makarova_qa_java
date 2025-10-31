@@ -11,37 +11,26 @@ import static org.mockito.Mockito.*;
 public class LionTest {
 
     @Mock
-    private Predator predatorMock;
+    private Feline felineMock;
 
     @Test
-    public void getKittensReturnsValueFromPredator() {
-        try {
-            when(predatorMock.getKittens()).thenReturn(3);
-
-            Lion lion = new Lion("Самец", predatorMock);
-            int kittens = lion.getKittens();
-
-            assertTrue(kittens == 3);
-            verify(predatorMock, times(1)).getKittens();
-        } catch (Exception e) {
-            assertTrue("Не должно быть исключения", false);
-        }
+    public void getKittensReturnsValueFromFeline() throws Exception {
+        when(felineMock.getKittens()).thenReturn(3);
+        Lion lion = new Lion("Самец", felineMock);
+        int kittens = lion.getKittens();
+        assertTrue(kittens == 3);
     }
 
     @Test
-    public void getFoodReturnsPredatorFood() {
-        try {
-            List<String> expectedFood = List.of("Животные", "Птицы");
-            when(predatorMock.eatMeat()).thenReturn(expectedFood);
-            Lion lion = new Lion("Самец", predatorMock);
-            List<String> food = lion.getFood();
-            assertTrue(expectedFood.equals(food));
-            verify(predatorMock, times(1)).eatMeat();
-        } catch (Exception e) {
-            assertTrue("Не должно быть исключения", false);
-        }
+    public void getFoodReturnsPredatorFood() throws Exception {
+        List<String> expectedFood = List.of("Животные", "Птицы");
+        when(felineMock.getFood("Хищник")).thenReturn(expectedFood);
+        Lion lion = new Lion("Самец", felineMock);
+        List<String> food = lion.getFood();
+        assertTrue(expectedFood.equals(food));
     }
 }
+
 
 
 

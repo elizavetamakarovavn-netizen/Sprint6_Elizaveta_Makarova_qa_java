@@ -14,7 +14,7 @@ public class LionParameterizedTest {
     private final boolean expectedHasMane;
 
     @Mock
-    private Predator predatorMock;
+    private Feline felineMock;
 
     public LionParameterizedTest(String sex, boolean expectedHasMane) {
         this.sex = sex;
@@ -36,10 +36,11 @@ public class LionParameterizedTest {
 
     @Test
     public void doesHaveManeShouldReturnExpectedValue() throws Exception {
-        Lion lion = new Lion(sex, predatorMock);
+        Lion lion = new Lion(sex, felineMock);
         assertTrue("Неверное значение гривы для пола: " + sex, lion.doesHaveMane() == expectedHasMane);
     }
 }
+
 
 
 
